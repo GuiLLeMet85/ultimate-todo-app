@@ -28,7 +28,7 @@ export default function TaskCard (props) {
                                 <p>Task done? {done ? " ✅  " : " ❌ " }</p>
                         </div>
                         <div className="btn-card">
-                                <button className="useful-bt" src={useful_link}>More info</button>
+                                <a className="useful-bt" href={useful_link} >More info</a>
                                 <button onClick={() => onDelete(name)} className="delete-bt"> Delete </button>
                         </div>
                     </div>
