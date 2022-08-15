@@ -26,7 +26,7 @@ export default function TaskCard (props) {
         e.preventDefault();
         newTask(task);
         setTask({
-            done: 'false'
+            done: ''
         })
     }
 
@@ -53,7 +53,7 @@ export default function TaskCard (props) {
                                
                         <form onSubmit={handleForm} className="add-task">
                                  <label>Change?</label>
-                                <input type="checkbox"checked={task.hasDone} name="done" value={task.done} onChange={(e) => handleCheck(e)} onClick/>
+                                <input type="checkbox"checked={task.hasDone} name="done" value={task.done} onChange={(e) => handleCheck(e)} />
                                 <button type="submit">Task done!</button>
                         </form>        
                         </div>

@@ -34,6 +34,11 @@ function App() {
     setTask(updateTask);
   }
 
+  const handleSortByUrgency = () => {
+    const ordered = [...tasks].sort((a, b) => b.urgency - a.urgency);
+    setTask(ordered);
+  }
+
 
   return (
     <div className="App">
@@ -42,7 +47,7 @@ function App() {
 
       <SearchBar onSearch = {handleSearch} />
 
-
+      <button className="card-btn" onClick={handleSortByUrgency}>Sort by Urgency</button>
        <h2>Task List</h2>
         <div className="list-task">
         {tasks.map (elem =>{
