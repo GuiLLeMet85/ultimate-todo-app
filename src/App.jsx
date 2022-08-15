@@ -3,6 +3,7 @@ import taskData from './list.json';
 import TaskCard from './components/TaskCard';
 import React, {useState} from 'react';
 import SearchBar from './components/SearchBar';
+import NewTask from './components/NewTask';
 
 
 function App() {
@@ -27,18 +28,27 @@ function App() {
     }
   }
 
+  const handleNewTask = (task) => {
+    const updateTask = [...tasks];
+    updateTask.push(task);
+    setTask(updateTask);
+  }
+
 
   return (
     <div className="App">
 
-     <SearchBar onSearch = {handleSearch} />
+      <NewTask newTask ={handleNewTask}/>
 
-    <h2>Task List</h2>
-    <div className="list-task">
-     {tasks.map (elem =>{
-      return  <TaskCard info = {elem} onDelete = {handleDelete} key={elem.name} />
-     })}
-    </div>
+      <SearchBar onSearch = {handleSearch} />
+
+
+       <h2>Task List</h2>
+        <div className="list-task">
+        {tasks.map (elem =>{
+          return  <TaskCard info = {elem} onDelete = {handleDelete} key={elem.name} />
+        })}
+        </div>
     </div>
   );
 }
