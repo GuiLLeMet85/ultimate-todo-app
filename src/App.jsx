@@ -9,6 +9,7 @@ import NewTask from './components/NewTask';
 function App() {
 
   const [tasks, setTask] = useState (taskData);
+  const [showForm, setShowForm] = useState(false);
 
   const handleDelete = (taskName) => {
     const taskToRemove = tasks.filter (elem => {
@@ -42,12 +43,16 @@ function App() {
 
   return (
     <div className="App">
-
-      <NewTask newTask ={handleNewTask}/>
-
-      <SearchBar onSearch = {handleSearch} />
-
-      <button className="card-btn" onClick={handleSortByUrgency}>Sort by Urgency</button>
+      <div className='main-bar'>
+       <div>
+        {showForm && <NewTask newTask={handleNewTask} />} 
+       <button className="card-btn outlined" onClick={() => setShowForm(prev => !prev)}>{!showForm ? "Create new task" : "Hide form"}</button>
+       </div>
+        <div className='search-bar'>
+        <label>Find:  </label><SearchBar onSearch = {handleSearch} /></div>
+        <button className="sort-btn" onClick={handleSortByUrgency}>Sort by Urgency</button>
+      </div>
+      
        <h2>Task List</h2>
         <div className="list-task">
         {tasks.map (elem =>{

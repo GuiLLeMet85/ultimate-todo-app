@@ -19,6 +19,7 @@
   --primary-red: #E3000B;
   --light-blue: blue;
   --basic-green: green;
+  --basic-black: #333;
 
 }
 
@@ -64,7 +65,7 @@ h3 {
   font-size: 1.3rem;
   font-weight: 200;
   font-family: 'Russo One', sans-serif;
-  color: var(--primary-red);
+  color: var(--basic-black);
   margin-bottom: 0px;
 }
 
@@ -74,6 +75,11 @@ h4 {
 
 h5 {
   font-size: 1.1rem;
+}
+
+.main-bar {
+    display: flex;
+    flex-direction: row;
 }
 
 .list-task {
@@ -120,4 +126,89 @@ h5 {
     padding: 2vh 1vw ;
     border-radius: 5px;
 
+}
+/*----------- Main Bar-----------*/
+
+main-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+/*----------- Add task Form-----------*/
+
+.add-form {
+    background-color: red;
+    padding: 4vh 2vw;
+}
+
+.add-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    padding: 2vh 1vw;
+    font-size: 1.2rem;
+}
+
+input {
+    padding: 2vh 1vw;
+}
+input[type="textarea"] {
+    height: 50px;
+}
+
+input::placeholder {
+    font-weight: bold;
+    opacity: .5;
+    padding: 2vh 1vw;
+}
+.add-form button {
+    margin: 4vh auto 2vh;
+    padding: 2vh 1vw;
+    width: 250px;
+}
+
+/*----------- Search Bar-----------*/
+
+.search-bar {
+    padding: 2vh 1vw;
+    margin: 2vh auto;
+    background-color: blue;
+}
+
+.search-bar input {
+    width: 300px;
+}
+
+.sort-btn {
+    width: 250px;
+    margin: 1vh auto 2vh;
+    padding: 2vh 1vw;
+    background-color: #999
+}
+.sort-btn:hover {
+    background-color: green;
+}
+
+
+
+
+@media (min-width: 568px){
+    section.card {
+        width: calc(50% - var(--main-gap) / 2);
+      }
+}
+  
+@media (min-width: 1024px) {
+    section.card {
+      width: calc(33.33% - var(--main-gap)*2 / 3);
+    }
+}
+
+  @media (min-width: 1300px) {
+    section.card {
+      width: calc(25% - var(--main-gap)*3 / 4);
+    }
   }

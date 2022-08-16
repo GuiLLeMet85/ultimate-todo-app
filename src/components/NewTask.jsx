@@ -21,7 +21,6 @@ export default function NewTask (props) {
                 [e.target.name]: conditionalValue
             }
         })
-        console.log(task)
     }
 
     const handleUrgency = (e) => {
@@ -32,15 +31,6 @@ export default function NewTask (props) {
             }
         })
     }
-
-    // const handleCheck = (e) => {
-    //     setTask(prev => {
-    //         return {
-    //             ...prev,
-    //             hasDone: e.target.checked
-    //         }
-    //     })
-    // }
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -68,7 +58,7 @@ export default function NewTask (props) {
                 <label>Urgency</label>
                 <input type="number" placeholder="Urgency level" name="urgency" value={task.urgency} onChange={(e) => handleUrgency(e)}/>
                 <label>Description</label>
-                <input type="text" placeholder="Description task" name="description" value={task.description} onChange={(e) => handleChange(e)}/>
+                <input type="textarea" placeholder="Description task" name="description" value={task.description} onChange={(e) => handleChange(e)}/>
                
                 <button type="submit">Add the new task</button>
             </form>
