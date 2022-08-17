@@ -49,15 +49,11 @@ export default function NewTask (props) {
         <div className="add-form">
             <h3> Create a new task</h3>
             <form onSubmit={handleForm} className="add-task">
-                <label>Name</label>
+     
                 <input type="text" placeholder="Name task" name="name" value={task.name} onChange={(e) => handleChange(e)}/>
-                <label>Image</label>
-                <input type="text" placeholder="Image URL" name="image" value={task.image} onChange={(e) => handleChange(e)}/>
-                <label>More information</label>
-                <input type="text" placeholder="Useful URL" name="useful_link" value={task.useful_link} onChange={(e) => handleChange(e)}/>
-                <label>Urgency</label>
+                <input type="text" placeholder="Image URL" name="image" value={task.image} onChange={(e) => handleChange(e)}/>           
+                <input type="text" placeholder="Useful URL" name="useful_link" value={task.useful_link} onChange={(e) => handleChange(e)}/>      
                 <input type="number" placeholder="Urgency level" name="urgency" value={task.urgency} onChange={(e) => handleUrgency(e)}/>
-                <label>Description</label>
                 <input type="textarea" placeholder="Description task" name="description" value={task.description} onChange={(e) => handleChange(e)}/>
                
                 <button type="submit">Add the new task</button>
