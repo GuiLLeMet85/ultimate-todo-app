@@ -4,12 +4,16 @@ import TaskCard from './components/TaskCard';
 import React, {useState} from 'react';
 import SearchBar from './components/SearchBar';
 import NewTask from './components/NewTask';
+import { FaPlus, FaWindowClose, FaSearch, FaSortAmountUp, FaTasks} from "react-icons/fa";
+
 
 
 function App() {
 
   const [tasks, setTask] = useState (taskData);
   const [showForm, setShowForm] = useState(false);
+  const [showSearch, setShowSearch] = useState (false);
+  const [showList, setShowList] =useState (false);
 
   const handleDelete = (taskName) => {
     const taskToRemove = tasks.filter (elem => {
@@ -41,24 +45,36 @@ function App() {
   }
 
 
+
+
   return (
     <div className="App">
-      <div className='main-bar'>
-       <div>
+        <header>
+              <button className="menu-bts" onClick={() => setShowForm(prev => !prev)}>{!showForm ? <FaPlus className='icon'/> : <FaWindowClose className='icon'/>}</button>
+              <button className="menu-bts" onClick={() => setShowSearch(prev => !prev)}>{!showSearch ?  <FaSearch className='icon'/> : <FaWindowClose className='icon'/>}</button>
+              <button className="menu-bts" onClick={handleSortByUrgency}><FaSortAmountUp className='icon'/>Sort by Urgency</button>
+              <button className="menu-bts" onClick={() => setShowList(prev => !prev)}>{!showList ?  <FaTasks className='icon'/> : <FaWindowClose className='icon'/>}</button>
+        </header>
+
+
+     
+
+    
         {showForm && <NewTask newTask={handleNewTask} />} 
-       <button className="card-btn outlined" onClick={() => setShowForm(prev => !prev)}>{!showForm ? "Create new task" : "Hide form"}</button>
-       </div>
-        <div className='search-bar'>
-        <label>Find:  </label><SearchBar onSearch = {handleSearch} /></div>
-        <button className="sort-btn" onClick={handleSortByUrgency}>Sort by Urgency</button>
-      </div>
-      
+
+        {showSearch &&  <div className='search-bar'>
+          <label>Find:  </label><SearchBar onSearch = {handleSearch} />
+        </div> }
+
+        {showList ?? <div className='tasks'>
        <h2>Task List</h2>
-        <div className="list-task">
-        {tasks.map (elem =>{
-          return  <TaskCard info = {elem} onDelete = {handleDelete} key={elem.name} />
-        })}
+          <div className="list-task">
+          {tasks.map (elem =>{
+            return  <TaskCard info = {elem} onDelete = {handleDelete} key={elem.name} />
+          })}
         </div>
+        </div>}
+
     </div>
   );
 }

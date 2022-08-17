@@ -77,29 +77,44 @@ h5 {
   font-size: 1.1rem;
 }
 
-.main-bar {
-    display: flex;
-    flex-direction: row;
+
+
+/*----------- Icons-----------*/
+
+.icon {
+  font-size: 20px;
+  color: white;
+  padding: 2vh 2vw;
 }
 
+
+
+/*----------- Menu-----------*/
+
+
+header {
+  width: 100vw;
+  height: 80px;
+  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button.menu-bts {
+  background-color: transparent;
+}
+
+
+
+
 .list-task {
-    display: grid;
-    grid-gap:0;
-    grid-template-columns: 550px 550px;
-    justify-content: center;
-    padding: 4vh 2vw;
-    margin: 4vh 2vw;
-    background-color: beige;
+    
   }
 
 .task {
-    border: 1px solid #333;
-    padding: 2vh 2vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 2vh 2vw;
-    width: 500px;
+   
 }
  
 .card {
@@ -211,4 +226,25 @@ input::placeholder {
     section.card {
       width: calc(25% - var(--main-gap)*3 / 4);
     }
+
+
+.list-task {
+  display: grid;
+  grid-gap:0;
+  grid-template-columns: 550px 550px;
+  justify-content: center;
+  padding: 4vh 2vw;
+  margin: 4vh 2vw;
+  background-color: beige;
+}
+
+.task {
+  border: 1px solid #333;
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 2vh 2vw;
+  width: 500px;
+}
   }
