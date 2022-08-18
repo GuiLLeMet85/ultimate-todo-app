@@ -13,16 +13,17 @@ export default function NewTask (props) {
 
     })
 
-    const handleChange = (e) => {
-        const conditionalValue = e.target.name === "urgency" ? parseInt(e.target.value) : e.target.value;
+    const handleChange = (elem) => {
+        const conditionalValue = elem.target.name === "urgency" ? parseInt(elem.target.value) : elem.target.value;
         setTask(prev => {
             return {
                 ...prev,
-                [e.target.name]: conditionalValue
+                [elem.target.name]: conditionalValue
             }
         })
+        console.log(task)
     }
-
+/*
     const handleUrgency = (e) => {
         setTask(prev => {
             return {
@@ -31,8 +32,9 @@ export default function NewTask (props) {
             }
         })
     }
-
+*/
     const handleForm = (e) => {
+       
         e.preventDefault();
         newTask(task);
         setTask({
@@ -41,7 +43,7 @@ export default function NewTask (props) {
             useful_link: '',
             urgency: '',
             description: '',
-            done: ''
+            done: 'false'
         })
     }
 
@@ -54,7 +56,7 @@ export default function NewTask (props) {
                 <input type="text" placeholder="Image URL" name="image" value={task.image} onChange={(e) => handleChange(e)}/>           
                 <input type="text" placeholder="Useful URL" name="useful_link" value={task.useful_link} onChange={(e) => handleChange(e)}/>      
                 <label>Urgency level</label>
-                <input type="range"  min="0" max="9" name="urgency"  list="tickmarks" value={task.urgency} onChange={(e) => handleUrgency(e) (
+                <input type="range"  min="0" max="9" name="urgency" list="tickmarks" value={task.urgency} onChange={(e) => handleChange(e) (
                     <datalist id="tickmarks">
                         <option value="0" label="0%"></option>
                         <option value="1"></option>
@@ -63,7 +65,7 @@ export default function NewTask (props) {
                         <option value="4"></option>
                         <option value="5" label="50%"></option>
                         <option value="6"></option>
-                        <option value="70"></option>
+                        <option value="7"></option>
                         <option value="8"></option>
                         <option value="9"></option>
                         <option value="10" label="100%"></option>

@@ -184,7 +184,7 @@ input {
 }
 input[type="textarea"] {
     height: 80px;
-    background-color: #6883bc;
+    background-color: #79a7d3;
 }
 
 input::placeholder {
