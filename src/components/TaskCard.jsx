@@ -48,7 +48,7 @@ export default function TaskCard (props) {
 
                         </div>
                         <div className="states-card">
-                                 <p><span className="title-desc">Urgency: </span> {urgency > 8 ? "Max Priority 🔴 " : "Not urgent 🟢 "} </p>
+                                 <p><span className="title-desc">Urgency: </span> {urgency > 8 ? "Max Priority  🔴 " : "Not urgent '{urgency}' 🟢 "} </p>
                                 <p>Status? {done ? " ✅  " : " ❌ " }</p>
                                
                         <form onSubmit={handleForm} className="add-task">
