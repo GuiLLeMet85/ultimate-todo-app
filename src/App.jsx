@@ -5,6 +5,9 @@ import React, {useState} from 'react';
 import SearchBar from './components/SearchBar';
 import NewTask from './components/NewTask';
 import { FaPlus, FaWindowClose, FaSearch, FaSortAmountUp, FaTasks} from "react-icons/fa";
+import tasksPicture from '../src/images/tasks.png'
+import Footer from './components/Footer';
+
 
 
 
@@ -12,8 +15,8 @@ function App() {
 
   const [tasks, setTask] = useState (taskData);
   const [showForm, setShowForm] = useState(false);
-  const [showSearch, setShowSearch] = useState (false);
-  const [showList, setShowList] =useState (false);
+  const [showSearch, setShowSearch] = useState (true);
+  const [showList, setShowList] = useState (true);
 
   const handleDelete = (taskName) => {
     const taskToRemove = tasks.filter (elem => {
@@ -45,26 +48,32 @@ function App() {
   }
 
 
-
-
   return (
     <div className="App">
-        <header>
+        <navbar>
               <button className="menu-bts" onClick={() => setShowList(prev => !prev)}>{!showList ?  <FaTasks className='icon'/> : <FaWindowClose className='icon'/>}</button>
               <button className="menu-bts" onClick={() => setShowForm(prev => !prev)}>{!showForm ? <FaPlus className='icon'/> : <FaWindowClose className='icon'/>}</button>
               <button className="menu-bts" onClick={() => setShowSearch(prev => !prev)}>{!showSearch ?  <FaSearch className='icon'/> : <FaWindowClose className='icon'/>}</button>
-        </header>
+        </navbar>
 
 
      <div className='sections'>
-        {showForm && <NewTask newTask={handleNewTask} />} 
+        <h1>Welcome to Task page</h1>
+        <img src = {tasksPicture} alt="task logo" className='intro-pic'/>
+        {
+        showForm && <NewTask newTask={handleNewTask} />
+        } 
 
-        {showSearch &&  
+        {
+        showSearch &&  
               <div className='search-bar'>
-                <label>Find:  </label><SearchBar onSearch = {handleSearch} />
-              </div> }
+                <SearchBar onSearch = {handleSearch} />
+                <label><FaSearch className='icon'/>  </label>
+              </div> 
+        }
 
-        {showList &&  
+        {
+        showList &&  
                 <div className='tasks'>
                   <h2>Task List</h2>
                 <button className="list-bts" onClick={handleSortByUrgency}><FaSortAmountUp className='icon'/></button>
@@ -73,8 +82,10 @@ function App() {
                         return  <TaskCard info = {tasks} onDelete = {handleDelete} key={tasks.name} />
                       })}
                   </div>
-              </div>}
+              </div>
+        }
         </div>
+        <Footer />
       </div>
   );
 }

@@ -1,4 +1,6 @@
 import React, {useState} from "react"; 
+import { FaCalendarTimes, FaInfo, FaCheck} from "react-icons/fa";
+
 
 
 export default function TaskCard (props) {
@@ -58,8 +60,9 @@ export default function TaskCard (props) {
                         </form>        
                         </div>
                         <div className="btn-card">
-                                <a className="useful-bt" href={useful_link} >More info</a>
-                                <button onClick={() => onDelete(name)} className="delete-bt"> Delete </button>
+                                <a className="useful-bt" href={useful_link} ><FaInfo className="icon-btn"/></a>
+                                <button onClick={() => onDelete(name)} className="done-bt"> <FaCheck className="icon-btn"/> </button>
+                                <button onClick={() => onDelete(name)} className="delete-bt"> <FaCalendarTimes className="icon-btn"/> </button>
                         </div>
                     </div>
             </div>    

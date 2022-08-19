@@ -45,12 +45,13 @@ p {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   padding: 1vh 1vw 3vh;
   font-weight: 600;
   text-align: center;
   font-family: 'Russo One', sans-serif;
   line-height: 0.9;
+  color: #6883bc;
 }
 
 h2 {
@@ -92,11 +93,16 @@ h5 {
   color: #333;
 }
 
+.icon-btn {
+  font-size: 1.3rem;
+  color: white
+}
+
 
 /*----------- Menu-----------*/
 
 
-header {
+navbar {
   width: 100vw;
   height: 80px;
   background: rgb(138,48,127);
@@ -121,11 +127,20 @@ button.menu-bts {
    
 }
   */
+
+img.intro-pic {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+}  
 .card {
     padding: 2vh 2vw;
+    margin: 2vh auto;
     text-align: center;
     display: flex;
     flex-direction: column;
+    border: 0.2px solid #6883bc;
+    border-radius: 15px;
 }
 
 
@@ -139,12 +154,23 @@ button.menu-bts {
     flex-direction: row;
 }
 
-.btn-card button, .btn-card a {
-    width: 150px;
-    margin: 1vh 1vw;
-    padding: 2vh 1vw ;
-    border-radius: 5px;
+.btn-card button, button.done-bt, .btn-card a {
+    width: 17.5vw;
+    margin: 1vh auto;
+    padding: 2vh 1vw;
+    border-radius: 15px;
+}
 
+a.useful-bt {
+    background-color: #79a7d3;
+}
+
+button.delete-bt {
+    background-color: #6883bc;
+}
+
+button.done-bt {
+  background-color: #8a307f;
 }
 
 /*----------- Sections-----------*/
@@ -154,9 +180,6 @@ button.menu-bts {
 
 /*----------- Add task Form-----------*/
 
-.add-form {
-    padding: 1vh 1vw; 
-}
 .add-form h3 {
   text-align: center;
   font-weight: 700;
@@ -168,13 +191,12 @@ button.menu-bts {
     padding: 2vh 2vw;
     border: 0.2px solid #6883bc;
     margin: 2vh auto;
-    border-radius: 3px;
+    border-radius: 15px;
 }
 label {
     padding: 1vh 1vw;
 }
 input {
-    padding: 2vh 2vw;
     background-color: #79a7d3;
     border-radius: 3px;
     color: white;
@@ -200,15 +222,6 @@ label {
   font-weight: 800;
 }
 
-
-[data-input][type="number"]::-webkit-inner-spin-button, 
-[data-input][type="number"]::-webkit-outer-spin-button {  
-   -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
-    padding-top: 0vh;
-}
-
 .add-form button {
     margin: 4vh auto 2vh;
     padding: 2vh 1vw;
@@ -220,20 +233,21 @@ label {
     font-size: 1.2rem;
 }
 
-#tickmarks {
-    color:red;
-}
 
 /*----------- Search Bar-----------*/
 
 .search-bar {
     padding: 2vh 1vw;
     margin: 2vh auto;
-    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    border: 0.2px solid #6883bc;
+    border-radius: 15px;
 }
 
 .search-bar input {
     width: 300px;
+    border-radius: 15px;
 }
 
 .sort-btn {
@@ -283,4 +297,20 @@ label {
   margin: 2vh 2vw;
   width: 500px;
 }
-  }
+}
+
+/*----------- Footer-----------*/
+footer {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  padding: 5px;
+  background: rgb(104,131,188);
+  background: linear-gradient(90deg, rgba(104,131,188,1) 6%, rgba(121,167,211,1) 41%, rgba(138,48,127,1) 100%);
+  color: #fff;
+  bottom: 0;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width: 100%;
+}

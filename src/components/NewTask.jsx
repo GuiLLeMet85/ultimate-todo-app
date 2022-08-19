@@ -1,50 +1,27 @@
 import React, {useState} from "react"; 
+import { Range } from 'react-range';
 
-export default function NewTask (props) {
+export default function NewTask ({newInfo}) {
 
-    const {newTask} = props;
-    const [task, setTask] = useState ({
-        name: '',
-        image: '',
-        useful_link: '',
-        urgency: '',
-        description: '',
-        done: false,
+    const [name, setName] =useState('')
+    const [image, setImage] = useState('')
+    const [useful_link, setUseful_link] = useState('')
+    const [urgency, setUrgency] = useState('');
+    const [description,setDescription] = useState('');
+    const [done,setDone] = useState('');
 
-    })
-
-    const handleChange = (elem) => {
-        const conditionalValue = elem.target.name === "urgency" ? parseInt(elem.target.value) : elem.target.value;
-        setTask(prev => {
-            return {
-                ...prev,
-                [elem.target.name]: conditionalValue
-            }
-        })
-        console.log(task)
-    }
-/*
-    const handleUrgency = (e) => {
-        setTask(prev => {
-            return {
-                ...prev,
-                urgency: parseInt(e.target.value)
-            }
-        })
-    }
-*/
     const handleForm = (e) => {
-       
-        e.preventDefault();
-        newTask(task);
-        setTask({
-            name: '',
-            image: '',
-            useful_link: '',
-            urgency: '',
-            description: '',
-            done: 'false'
-        })
+        e.preventDefault()
+        const newDataTaskForm = 
+        {
+            name: name,
+            image: image,
+            useful_link: useful_link,
+            urgency: parseInt(urgency),
+            description: description,
+            done: done
+        }
+        newInfo(newDataTaskForm)
     }
 
     return (
@@ -52,27 +29,12 @@ export default function NewTask (props) {
             <h3> Create a new task</h3>
             <form onSubmit={handleForm} className="add-task">
      
-                <input type="text" placeholder="Name task" name="name" value={task.name} onChange={(e) => handleChange(e)}/>
-                <input type="text" placeholder="Image URL" name="image" value={task.image} onChange={(e) => handleChange(e)}/>           
-                <input type="text" placeholder="Useful URL" name="useful_link" value={task.useful_link} onChange={(e) => handleChange(e)}/>      
+                <input type="text" placeholder="Name task" name="name" value={name} onChange={(e) => {setName(e.target.value) }} />
+                <input type="text" placeholder="Image URL" name="image" value={image} onChange={(e) => {setImage(e.target.value) }} />           
+                <input type="text" placeholder="Useful URL" name="useful_link" value={useful_link} onChange={(e) => setUseful_link((e.target.value) )} />      
                 <label>Urgency level</label>
-                <input type="range"  min="0" max="9" name="urgency" list="tickmarks" value={task.urgency} onChange={(e) => handleChange(e) (
-                    <datalist id="tickmarks">
-                        <option value="0" label="0%"></option>
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option value="5" label="50%"></option>
-                        <option value="6"></option>
-                        <option value="7"></option>
-                        <option value="8"></option>
-                        <option value="9"></option>
-                        <option value="10" label="100%"></option>
-                    </datalist>
-                    )
-                }/>
-                <input type="textarea" placeholder="Description task" name="description" value={task.description} onChange={(e) => handleChange(e)} />
+               {/* <Range step={1} maxValue={10} minValue={0} name="urgency" value={urgency} onChange={(e) => setUrgency((e.target.value) )} />   */}
+                <input type="textarea" placeholder="Description task" name="description" value={description} onChange={(e) => {setDescription(e.target.value) }} />
               
                 <button type="submit">Add the new task</button>
             </form>
